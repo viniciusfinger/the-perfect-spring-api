@@ -1,0 +1,54 @@
+version: '3.8'
+services:
+  postgresql-keycloak:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: keycloak
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+    ports:
+      - "5432:5432"
+    networks:
+      - rede
+  postgresql-perfect-api:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: perfect
+      POSTGRES_USER: perfect
+      POSTGRES_PASSWORD: perfect
+    ports:
+      - "5433:5432"
+    networks:
+      - rede
+  keycloak:
+    image: quay.io/keycloak/keycloak:20.0.2
+    environment:
+      KC_HOSTNAME: localhost
+      KC_HOSTNAME_PORT: 7080
+      KC_HOSTNAME_STRICT_BACKCHANNEL: "true"
+      KC_DB: postgres
+      KC_DB_URL: jdbc:postgresql://postgresql-keycloak:5432/keycloak
+      KC_DB_USERNAME: root
+      KC_DB_PASSWORD: root
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+      KC_HEALTH_ENABLED: "true"
+      KC_LOG_LEVEL: info
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:7080/health/ready"]
+      interval: 15s
+      timeout: 2s
+      retries: 15
+    command: ["start-dev", "--http-port", "7080", "--https-port", "7443", "--import-realm"]
+    volumes:
+      - ../keycloak/realm-export.json:/opt/keycloak/data/import/realm-export.json
+    ports:
+      - "7080:7080"
+      - "7443:7443"
+    networks:
+      - rede
+    depends_on:
+      - postgresql-keycloak
+networks:
+  rede:
+    driver: bridge
