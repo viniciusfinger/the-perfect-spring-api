@@ -1,0 +1,58 @@
+###############################################################
+#####                General configuration               ######
+###############################################################
+spring:
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    generate-ddl: false
+server:
+  servlet:
+    context-path: /perfect
+---
+
+###############################################################
+#####                Local configuration                 ######
+###############################################################
+spring:
+  config:
+    activate:
+      on-profile: develop
+  datasource:
+    url: jdbc:postgresql://localhost:5433/perfect
+    username: perfect
+    password: perfect
+    hikari:
+      connectionTimeout: 20000
+      maximumPoolSize: 5
+  jpa:
+    hibernate:
+      ddl-auto: update
+logging:
+  level:
+    root: info
+server:
+  port: 8080
+---
+
+###############################################################
+#####                Cloud configuration                 ######
+###############################################################
+spring:
+  config:
+    activate:
+      on-profile: cloud
+  datasource:
+    url: ${DATABASE_URL}
+    username: ${DATABASE_USERNAME}
+    password: ${DATABASE_PASSWORD}
+    hikari:
+      connectionTimeout: ${DATABASE_CONNECTION_TIMEOUT}
+      maximumPoolSize: ${DATABASE_MAXIMUM_POOL_SIZE}
+  jpa:
+    hibernate:
+      ddl-auto: ${DATABASE_DDL_AUTO}
+logging:
+  level:
+    root: ${LOG_LEVEL}
+server:
+  port: ${SERVER_PORT}
