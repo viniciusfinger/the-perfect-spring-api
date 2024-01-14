@@ -4,11 +4,20 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+import org.hibernate.envers.AuditOverride;
+import org.hibernate.envers.Audited;
 
-import java.time.LocalDateTime;
-
+@Getter
+@Setter
 @Entity
-public class Project {
+@ToString
+@RequiredArgsConstructor
+@Audited @AuditOverride(forClass = Auditable.class)
+public class Project extends Auditable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,5 +27,4 @@ public class Project {
 
     private String description;
 
-    private LocalDateTime createdAt;
 }
