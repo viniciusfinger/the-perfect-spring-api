@@ -11,8 +11,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.util.Date;
 
-@Getter
-@Setter
+@Getter @Setter
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
 public class Auditable {
