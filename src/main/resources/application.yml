@@ -5,6 +5,11 @@ spring:
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     generate-ddl: false
+    properties:
+      org:
+        hibernate:
+          envers:
+            default_schema: audit
 server:
   servlet:
     context-path: /perfect
@@ -33,7 +38,7 @@ spring:
       maximumPoolSize: 5
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: create-drop
 logging:
   level:
     root: info
