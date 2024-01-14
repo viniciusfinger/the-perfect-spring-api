@@ -8,6 +8,8 @@ spring:
 server:
   servlet:
     context-path: /perfect
+
+    #to-do: add springdoc and prometheus config
 ---
 
 ###############################################################
@@ -17,6 +19,11 @@ spring:
   config:
     activate:
       on-profile: develop
+  security:
+      oauth2:
+        resourceserver:
+          jwt:
+            issuer-uri: http://localhost:7080/realms/perfect
   datasource:
     url: jdbc:postgresql://localhost:5433/perfect
     username: perfect
@@ -41,6 +48,11 @@ spring:
   config:
     activate:
       on-profile: cloud
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: ${ISSUER_URI}
   datasource:
     url: ${DATABASE_URL}
     username: ${DATABASE_USERNAME}
