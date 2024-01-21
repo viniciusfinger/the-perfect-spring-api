@@ -1,11 +1,11 @@
 package com.viniciusfinger.perfect.service.impl;
 
 
-import com.viniciusfinger.perfect.service.UserService;
+import com.viniciusfinger.perfect.service.PersonService;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UserServiceImpl implements UserService {
+public class PersonServiceImpl implements PersonService {
     
 
 }

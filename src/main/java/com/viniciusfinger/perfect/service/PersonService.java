@@ -1,4 +1,4 @@
 package com.viniciusfinger.perfect.service;
 
-public interface UserService {
+public interface PersonService {
 }

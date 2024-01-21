@@ -8,7 +8,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-public class User extends Auditable {
+public class Person extends Auditable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
