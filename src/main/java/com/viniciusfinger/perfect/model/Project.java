@@ -1,9 +1,6 @@
 package com.viniciusfinger.perfect.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
@@ -24,6 +21,10 @@ public class Project extends Auditable {
     private Long id;
 
     private String name;
+
+    @ManyToOne
+    @JoinColumn(name = "coordinator_id")
+    private Person coordinator;
 
     private String description;
 

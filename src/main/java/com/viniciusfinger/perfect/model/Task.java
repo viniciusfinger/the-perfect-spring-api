@@ -1,7 +1,9 @@
 package com.viniciusfinger.perfect.model;
 
-
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
@@ -15,15 +17,16 @@ import org.hibernate.envers.Audited;
 @ToString
 @RequiredArgsConstructor
 @Audited @AuditOverride(forClass = Auditable.class)
-public class Person extends Auditable {
+public class Task extends Auditable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
     private String name;
 
-    private String keycloakExternalId;
+    private String description;
+
+
 
 }
