@@ -40,3 +40,6 @@ The API should support the following features:
 
 11. **Unit Tests:**
 - Create unit tests for API.
+
+12. **Cache:**
+- Mantain cache of the most use resources
