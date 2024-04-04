@@ -22,7 +22,7 @@
 		<hibernate.envers.version>6.4.1.Final</hibernate.envers.version>
 		<java.jwt.version>4.4.0</java.jwt.version>
 		<postgresql.version>42.6.0</postgresql.version>
-		<lombook.version>1.18.30</lombook.version>
+		<lombok.version>1.18.30</lombok.version>
 	</properties>
 
 	<dependencies>
@@ -80,7 +80,7 @@
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
-			<version>${lombook.version}</version>
+			<version>${lombok.version}</version>
 		</dependency>
 
 		<dependency>
