@@ -7,7 +7,6 @@ import lombok.Setter;
 import lombok.ToString;
 import org.hibernate.envers.AuditOverride;
 import org.hibernate.envers.Audited;
-
 import java.util.List;
 
 
@@ -26,7 +25,6 @@ public class Story extends Auditable {
     private String title;
 
     private String description;
-
 
     //to-do: review this mapping
     @OneToMany
