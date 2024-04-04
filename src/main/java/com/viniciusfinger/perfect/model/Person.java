@@ -1,6 +1,5 @@
 package com.viniciusfinger.perfect.model;
 
-
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

@@ -2,71 +2,94 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>3.2.1</version>
 		<relativePath/>
 	</parent>
+
 	<groupId>com.viniciusfinger</groupId>
 	<artifactId>perfect</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>The Perfect Spring API</name>
 	<description>Demo project for Spring Boot</description>
+
 	<properties>
 		<java.version>21</java.version>
+		<spring.base.version>3.2.1</spring.base.version>
+		<hibernate.envers.version>6.4.1.Final</hibernate.envers.version>
+		<java.jwt.version>4.4.0</java.jwt.version>
+		<postgresql.version>42.6.0</postgresql.version>
+		<lombook.version>1.18.30</lombook.version>
 	</properties>
+
 	<dependencies>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
+			<version>${spring.base.version}</version>
 		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+			<version>${spring.base.version}</version>
 		</dependency>
+
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-envers</artifactId>
-			<version>6.4.1.Final</version>
+			<version>${hibernate.envers.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
+			<version>${spring.base.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-oauth2-client</artifactId>
+			<version>${spring.base.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>com.auth0</groupId>
 			<artifactId>java-jwt</artifactId>
-			<version>4.4.0</version>
+			<version>${java.jwt.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-oauth2-resource-server</artifactId>
+			<version>${spring.base.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
 			<scope>runtime</scope>
+			<version>${postgresql.version}</version>
 		</dependency>
+
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
+			<version>${lombook.version}</version>
 		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
+			<version>${spring.base.version}</version>
 		</dependency>
+
 	</dependencies>
 
 	<build>

@@ -4,7 +4,6 @@ import com.viniciusfinger.perfect.util.JwtUtil;
 import org.springframework.data.domain.AuditorAware;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.oauth2.jwt.Jwt;
-
 import java.util.Optional;
 
 class SpringSecurityAuditorAware implements AuditorAware<String> {

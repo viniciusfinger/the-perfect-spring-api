@@ -1,7 +1,6 @@
 package com.viniciusfinger.perfect.util;
 
 import org.springframework.security.oauth2.jwt.Jwt;
-
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.interfaces.DecodedJWT;
 

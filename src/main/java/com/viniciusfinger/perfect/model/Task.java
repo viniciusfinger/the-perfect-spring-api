@@ -27,6 +27,4 @@ public class Task extends Auditable {
 
     private String description;
 
-
-
 }
