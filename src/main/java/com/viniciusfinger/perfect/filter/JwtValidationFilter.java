@@ -19,14 +19,13 @@ public class JwtValidationFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         String jwt = request.getHeader("Authorization");
 
-        Optional.of(jwt).ifPresent(token -> {
+         if (null != jwt) {
             DecodedJWT decodedJWT = JWT.decode(jwt.replace("Bearer ", ""));
 
             if (decodedJWT.getExpiresAt().before(new Date())) {
                 throw new InvalidBearerTokenException("Token expired");
             }
-
-        });
+        }
 
         filterChain.doFilter(request, response);
     }
