@@ -11,8 +11,6 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/projects")
 public class ProjectController implements IProjectController {
 
-    //to-do: change return type to ProjectDTO
-
     private final ProjectService projectService;
 
     public ProjectController(ProjectService projectService) {
@@ -20,14 +18,12 @@ public class ProjectController implements IProjectController {
     }
 
     @PostMapping
-    public ResponseEntity<Project> create(Project project) {
-        //to-do: change response to created and add URI location
+    public ResponseEntity<Project> create(@RequestBody Project project) {
         return ResponseEntity.ok(this.projectService.save(project));
     }
 
     @PutMapping
-    public ResponseEntity<Project> update(Project project) {
-        //to-do: change response to created and add URI location
+    public ResponseEntity<Project> update(@RequestBody Project project) {
         return ResponseEntity.ok(this.projectService.save(project));
     }
 

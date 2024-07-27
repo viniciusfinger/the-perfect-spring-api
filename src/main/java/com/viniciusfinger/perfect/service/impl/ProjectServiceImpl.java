@@ -32,5 +32,4 @@ public class ProjectServiceImpl implements ProjectService {
 
         return this.projectRepository.findAll(pageable);
     }
-
 }

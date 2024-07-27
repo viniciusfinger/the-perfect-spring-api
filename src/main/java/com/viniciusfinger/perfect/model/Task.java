@@ -1,9 +1,8 @@
 package com.viniciusfinger.perfect.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.viniciusfinger.perfect.enums.Priority;
+import com.viniciusfinger.perfect.enums.Status;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
@@ -26,5 +25,13 @@ public class Task extends Auditable {
     private String name;
 
     private String description;
+
+    private Integer points;
+
+    @Enumerated(EnumType.STRING)
+    private Status status;
+
+    @Enumerated(EnumType.STRING)
+    private Priority priority;
 
 }
