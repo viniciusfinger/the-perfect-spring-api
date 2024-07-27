@@ -1,5 +1,7 @@
 package com.viniciusfinger.perfect.model;
 
+import com.viniciusfinger.perfect.enums.Priority;
+import com.viniciusfinger.perfect.enums.Status;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -25,6 +27,14 @@ public class Story extends Auditable {
     private String title;
 
     private String description;
+
+    @Enumerated(EnumType.STRING)
+    private Status status;
+
+    @Enumerated(EnumType.STRING)
+    private Priority priority;
+
+    private Integer points;
 
     //to-do: review this mapping
     @OneToMany
