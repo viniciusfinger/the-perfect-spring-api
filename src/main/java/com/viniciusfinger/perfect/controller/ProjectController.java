@@ -23,7 +23,7 @@ public class ProjectController implements IProjectController {
     }
 
     @PutMapping
-    public ResponseEntity<Project> update(Project project) {
+    public ResponseEntity<Project> update(@RequestBody Project project) {
         return ResponseEntity.ok(this.projectService.save(project));
     }
 
